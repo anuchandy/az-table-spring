@@ -17,7 +17,7 @@
      * Uncomment `azure-webapp-maven-plugin` plugin section.
      * In the uncommented plugin section set subscriptionId, a new resourceGroup name and a unique (e.g. uuid) <domain-name> for the app service.
      * run 'mvn package azure-webapp:deploy'
-     * visit https://<domain-name>.azurewebsites.net/fetch
+     * visit https://&lt;domain-name&gt;.azurewebsites.net/fetch
      * For more details [refer](https://docs.microsoft.com/en-us/azure/app-service/quickstart-java?tabs=javase&pivots=platform-windows).
 
 
@@ -30,9 +30,20 @@ From Azure Portal, we can configure and install Application Insight Java Agent t
 3. Under 'Instrument your application', select 'Java' and choose 'Yes' for 'My application is a Java app:'.
 4. The Application Insight Java Agent uses the content of 'applicationinsights.json' file as configuration.
 5. In Azure Portal, we can provide this configuration as plain text.
+  
+  <img width="750" alt="EnableAppInsightAppServiceBegin" src="https://user-images.githubusercontent.com/1471612/175177518-b4f626a6-6aae-446c-862f-265426a99dbe.png">
+  
 6. The configuration can have a section `jmxMetrics` describing the JMX metrics to be collected by the agent.
-7. (But) Application Insights Java Agent collects some of the JMX metrics by default (i.e. without you defining `jmxMetrics` section). For example - Heap Memory used, GC Total Count, etc. (Navigate to your application insights resource. Under the Metrics tab, select the dropdown as shown below to view the metrics)
-   If the default JMX metrics are not sufficient, then see next steps.
+7. But Application Insights Java Agent collects some of the JMX metrics by default (i.e. without you defining `jmxMetrics` section). For example - Heap Memory used, GC Total Count, etc. Navigate to your application insights resource. Under the Metrics tab, select the dropdown as shown below to view the metrics.
+  
+  <img width="400" alt="AppInsightCustomMetrics" src="https://user-images.githubusercontent.com/1471612/175177652-4cdbd88b-dc1e-41b7-bcdd-17b2495d9cf6.png">
+
+  Here is Heap Memory used, GC Total Count (the JMX metrics collected by default) plotted
+  
+  <img width="750" alt="HeapMemGcUsedMetrics" src="https://user-images.githubusercontent.com/1471612/175177987-1fb8338e-c6a5-4feb-9400-485cbbe79cbc.png">
+
+If the default JMX metrics are not sufficient, then see next steps.
+  
 8. The JMX attributes to provide under `jmxMetrics` differ from JVM to JVM, so first we need to get the exact attributes [link](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-jmx-metrics-configuration) [link](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config#self-diagnostics).
 9. To get JMX attributes for your environment, set the following configuration content and click 'Apply'.
 
@@ -45,14 +56,17 @@ From Azure Portal, we can configure and install Application Insight Java Agent t
 }
 ```
 
-<image here>
+<img width="750" alt="EnableAppInsightAppService" src="https://user-images.githubusercontent.com/1471612/175178373-85f1d2b9-e205-466b-a722-9b5980430e00.png">
 
 10. Now we need to download the 'applicationInsights.log' file containing the JMX attributes.
 11. Go to 'https://&lt;domain-name&gt;.scm.azurewebsites.net'
 12. From menu select 'Debug Console' -> PowerShell 
+  
+<img width="600" alt="KuduAppService" src="https://user-images.githubusercontent.com/1471612/175178559-f9498c70-f200-402d-ad0c-7c997db13830.png">
+  
 13. From the explorer like section, navigate to 'applicationInsights.log' (LogFiles\ApplicationInsights\applicationinsights.log) and click download button.
 
-<image-here>
+<img width="600" alt="KuduLogFilesAppService" src="https://user-images.githubusercontent.com/1471612/175178635-4e9d47b6-d949-44ac-a304-fbfaa0889f2d.png">
 
 14. Search for 'available jmx metrics' in the downloaded log file.
 
