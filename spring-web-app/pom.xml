@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">  
+  <modelVersion>4.0.0</modelVersion>  
+  <parent> 
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-parent</artifactId>  
+    <version>2.7.0</version>  
+    <relativePath/> 
+  </parent>  
+  <groupId>com.anuchan.spring</groupId>  
+  <artifactId>anuchan-az-table-spring</artifactId>  
+  <version>0.0.1-SNAPSHOT</version>  
+  <name>azure table spring sample</name>  
+  <properties> 
+    <java.version>11</java.version> 
+  </properties>  
+  <dependencies> 
+    <dependency> 
+      <groupId>com.azure</groupId>  
+      <artifactId>azure-data-tables</artifactId>  
+      <version>12.3.0</version> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-web</artifactId> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-test</artifactId>  
+      <scope>test</scope>  
+      <exclusions> 
+        <exclusion> 
+          <groupId>org.junit.vintage</groupId>  
+          <artifactId>junit-vintage-engine</artifactId> 
+        </exclusion> 
+      </exclusions> 
+    </dependency> 
+  </dependencies>  
+  <build> 
+    <plugins> 
+      <plugin> 
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-maven-plugin</artifactId> 
+      </plugin>
+<!-- uncomment below plugin section, fill placeholders and run "mvn package azure-webapp:deploy" -->
+<!--      <plugin>-->
+<!--        <groupId>com.microsoft.azure</groupId>-->
+<!--        <artifactId>azure-webapp-maven-plugin</artifactId>-->
+<!--        <version>2.5.0</version>-->
+<!--        <configuration>-->
+<!--          <schemaVersion>v2</schemaVersion>-->
+<!--          <subscriptionId>{subscription-id}</subscriptionId>-->
+<!--          <resourceGroup>{new-resource-group-name}</resourceGroup>-->
+<!--          <appName>{random-domain-name e.g. guid}</appName>-->
+<!--          <pricingTier>P1v2</pricingTier>-->
+<!--          <region>centralus</region>-->
+<!--          <runtime>-->
+<!--            <os>Windows</os>-->
+<!--            <javaVersion>Java 11</javaVersion>-->
+<!--            <webContainer>Java SE</webContainer>-->
+<!--          </runtime>-->
+<!--          <deployment>-->
+<!--            <resources>-->
+<!--              <resource>-->
+<!--                <directory>${project.basedir}/target</directory>-->
+<!--                <includes>-->
+<!--                  <include>*.jar</include>-->
+<!--                </includes>-->
+<!--              </resource>-->
+<!--            </resources>-->
+<!--          </deployment>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+    </plugins> 
+  </build> 
+</project>
