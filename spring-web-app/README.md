@@ -278,3 +278,10 @@ If the default JMX metrics are not sufficient, then see next steps.
   ]
 }
 ```
+
+  ## References
+
+1. [Java Application Insight Configure](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config)
+2. [Configuring JMX](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-jmx-metrics-configuration#how-do-i-know-what-metrics-are-available-to-configure)
+3. [Application Insight Metrics Explorer](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-charts#create-views-with-multiple-metrics-and-charts)
+4. [SSHing into App Service](https://docs.microsoft.com/en-us/azure/app-service/configure-language-java?pivots=platform-linux#ssh-console-access)
