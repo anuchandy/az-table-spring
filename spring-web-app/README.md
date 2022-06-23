@@ -44,7 +44,7 @@ From Azure Portal, we can configure and install Application Insight Java Agent t
 
 If the default JMX metrics are not sufficient, then see next steps.
   
-8. The JMX attributes to provide under `jmxMetrics` differ from JVM to JVM, so first we need to get the exact attributes [link](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-jmx-metrics-configuration) [link](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config#self-diagnostics).
+8. The JMX attributes to provide under `jmxMetrics` differ from JVM to JVM, so first we need to get the exact attributes.
 9. To get JMX attributes for your environment, set the following configuration content and click 'Apply'.
 
 ```
