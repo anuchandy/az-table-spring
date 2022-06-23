@@ -2,7 +2,7 @@
 
 ## Build and Run the application
 
-1. Create `application.properties` under `resources` directory.
+1. Create `application.properties` under `src\resources` directory.
 2. Add storage connection string in the below key-value format
 > azure.connString=<conn-string>
 3. Open `WebBackendService.java`, set an existing table name for the static variable `TABLE_NAME`.
