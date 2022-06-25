@@ -1,4 +1,5 @@
 
+A simple Spring Web Application exposing a web endpoint, when called, fetches entities from an Azure Table using Azure Table Client, counts entities, and returns an HTTP plain text message containing that count.
 
 ## Build and Run the application
 
