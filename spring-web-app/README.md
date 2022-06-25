@@ -4,7 +4,7 @@ A simple Spring Web Application exposing a web endpoint, when called, fetches en
 ## Build and Run the application
 
 1. Create `application.properties` under `src\resources` directory.
-2. Add storage connection string in the below key-value format
+2. Add storage connection string (to authenticate the Azure Table) in the below key-value format
 > azure.connString=<conn-string>
 3. Open `WebBackendService.java`, set an existing table name for the static variable `TABLE_NAME`.
 4. Spring app exposes an endpoint `/fetch`, when called, retrieve and count all entries from the table and return the string `Fetched and enumerated {N} entities <random-uuid>`
